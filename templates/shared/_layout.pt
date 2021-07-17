@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Python Package Index (demo)</title>
+
+    <link rel="stylesheet" href="/static/external/tailwind.css">
+
+</head>
+<body>
+
+<div class="main_content">
+    <div metal:define-slot="content" tal:omit-tag="True">No content</div>
+</div>
+
+</body>
+</html>
