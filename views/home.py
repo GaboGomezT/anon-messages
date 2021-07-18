@@ -7,7 +7,11 @@ router = fastapi.APIRouter()
 @router.get('/')
 @template()
 def index():
-    return {
-        "message": "Hello World!"
-    }
+    return {}
+
+
+@router.get('/register')
+@template()
+def register():
+    return {}
 
