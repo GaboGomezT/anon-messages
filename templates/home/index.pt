@@ -1,11 +1,18 @@
 <div metal:use-macro="load: ../shared/_layout.pt">
     <div metal:fill-slot="content" tal:omit-tag="True">
 
-        <div class="content">
-
-            <h1>
-                Message: ${message}
-            </h1>   
+        <div class="content flex justify-center">
+            <div class="container bg-pink-500 p-4 mt-20 w-2/3">
+                <p class="text-4xl font-black text-indigo-50">¿Qué es esto?</p>
+                <p class="text-3xl font-normal text-indigo-50 my-4">
+                    Señales es un lugar donde puedes mandar un mensaje al universo.
+                    <br></br>
+                    ¡Al mandar un mensaje podrás recibir uno de vuelta!
+                    Si creas una cuenta podrás ver tus señales.
+                    <br></br>
+                    Envía tu señal, quizá sea lo que alguien necesite en este momento.
+                </p>
+            </div>   
 
         </div>
 

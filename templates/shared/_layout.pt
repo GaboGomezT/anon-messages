@@ -7,11 +7,29 @@
     <link rel="stylesheet" href="/static/external/tailwind.css">
 
 </head>
-<body>
+<body class="bg-indigo-400">
 
-<div class="main_content">
-    <div metal:define-slot="content" tal:omit-tag="True">No content</div>
-</div>
+    <nav class="flex items-center justify-between flex-wrap bg-teal-500 p-6">
+        <div class="flex items-center flex-shrink-0 text-white mr-6">
+            <span class="font-semibold text-7xl tracking-tight">Señales</span>
+        </div>
+        <div class="w-full block lg:flex lg:items-center lg:w-auto self-end">
+            <div class="text-3xl font-semibold lg:flex-grow">
+                <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+                    enviar señal
+                </a>
+                <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+                    iniciar sesión
+                </a>
+                <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white">
+                    crear cuenta
+                </a>
+            </div>
+        </div>
+    </nav>
+    <div class="main_content">
+        <div metal:define-slot="content" tal:omit-tag="True">No content</div>
+    </div>
 
 </body>
 </html>
