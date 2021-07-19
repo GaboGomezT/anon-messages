@@ -8,3 +8,4 @@ starlette
 python-multipart
 pymongo[srv]
 python-dotenv
+passlib

@@ -1,4 +1,4 @@
-from data.user import register_user
+from data.user import login_user, register_user
 import fastapi
 from fastapi_chameleon import template
 from infrastructure import cookie_auth
@@ -54,6 +54,42 @@ async def register(request: Request):
             "email": email,
             "validation_error": validation_error,
             "registration_error": registration_error,
+            "is_logged_in": False
+        }
+
+
+    # Login user
+    response = fastapi.responses.RedirectResponse(url='/', status_code=status.HTTP_302_FOUND)
+    cookie_auth.set_auth(response, email)
+
+    return response
+
+
+@router.get('/login')
+@template()
+def login(request: Request):
+    is_logged_in = cookie_auth.get_email_via_auth_cookie(request)
+    print("is_logged_in: ", is_logged_in)
+    return {
+        "is_logged_in": is_logged_in
+    }
+
+
+@router.post('/login')
+@template()
+async def login(request: Request):
+    form = await request.form()
+    password = form.get('password')
+    email = form.get('email')
+
+    # Create the account
+    login_error = login_user(email, password)
+
+    if login_error:
+        return {
+            "password": password,
+            "email": email,
+            "login_error": login_error,
             "is_logged_in": False
         }
 
