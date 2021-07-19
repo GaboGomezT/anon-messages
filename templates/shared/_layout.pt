@@ -21,7 +21,7 @@
                 <a tal:condition="not is_logged_in" href="/login" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
                     iniciar sesión
                 </a>
-                <a tal:condition="is_logged_in" href="/logout" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+                <a tal:condition="is_logged_in" href="/account" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
                     mi cuenta
                 </a>
                 <a tal:condition="is_logged_in" href="/logout" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
