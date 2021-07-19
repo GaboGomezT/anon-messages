@@ -15,13 +15,19 @@
         </div>
         <div class="w-full block lg:flex lg:items-center lg:w-auto self-end">
             <div class="text-3xl font-semibold lg:flex-grow">
-                <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+                <a href="/" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
                     enviar señal
                 </a>
-                <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+                <a tal:condition="not is_logged_in" href="/login" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
                     iniciar sesión
                 </a>
-                <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white">
+                <a tal:condition="is_logged_in" href="/logout" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+                    mi cuenta
+                </a>
+                <a tal:condition="is_logged_in" href="/logout" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+                    cerrar sesión
+                </a>
+                <a tal:condition="not is_logged_in" href="/register" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white">
                     crear cuenta
                 </a>
             </div>

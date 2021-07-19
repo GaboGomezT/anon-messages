@@ -10,14 +10,22 @@ router = fastapi.APIRouter()
 
 @router.get('/')
 @template()
-def index():
-    return {}
+def index(request: Request):
+    is_logged_in = cookie_auth.get_email_via_auth_cookie(request)
+    print("is_logged_in: ", is_logged_in)
+    return {
+        "is_logged_in": is_logged_in
+    }
 
 
 @router.get('/register')
 @template()
-def register():
-    return {}
+def register(request: Request):
+    is_logged_in = cookie_auth.get_email_via_auth_cookie(request)
+    print("is_logged_in: ", is_logged_in)
+    return {
+        "is_logged_in": is_logged_in
+    }
 
 
 @router.post('/register')
@@ -55,3 +63,9 @@ async def register(request: Request):
 
     return response
 
+@router.get('/logout')
+def logout():
+    response = fastapi.responses.RedirectResponse(url='/', status_code=status.HTTP_302_FOUND)
+    cookie_auth.logout(response)
+
+    return response
