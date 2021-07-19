@@ -1,4 +1,4 @@
-from views.utils import create_account
+from data.user import register_user
 import fastapi
 from fastapi_chameleon import template
 from infrastructure import cookie_auth
@@ -45,15 +45,16 @@ async def register(request: Request):
         validation_error = "Your password is required and must be at 5 characters."
 
     # Create the account
-    registration_error = create_account(name, email, password)
+    registration_error = register_user(name, email, password)
 
-    if validation_error:
+    if validation_error or registration_error:
         return {
             "name": name,
             "password": password,
             "email": email,
             "validation_error": validation_error,
-            "registration_error": registration_error
+            "registration_error": registration_error,
+            "is_logged_in": False
         }
 
 
