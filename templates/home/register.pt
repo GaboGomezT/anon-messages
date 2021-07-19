@@ -3,7 +3,7 @@
 
         <div class="content flex justify-center">
             <div class="container bg-pink-500 p-10 mt-20 w-min flex justify-center rounded-lg">
-                <form action="/register">
+                <form  action="/register" method="POST">
                     <label class="text-3xl font-semibold text-indigo-50" for="name">Nombre</label><br>
                     <input class="w-max rounded-lg" type="text" id="name" name="name"><br>
                     <label class="text-3xl font-semibold text-indigo-50" for="email">Correo:</label><br>
