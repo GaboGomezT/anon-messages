@@ -1,0 +1,23 @@
+<div metal:use-macro="load: ../shared/_layout.pt">
+    <div metal:fill-slot="content" tal:omit-tag="True">
+
+        <div class="content flex justify-center">
+            <div tal:condition="not is_logged_in and not signal" class="container p-4 mt-20 w-2/3 flex justify-center">
+                <p class="text-5xl font-bold text-indigo-50">Inicia sesión para seguir</p>
+            </div>   
+            <div tal:condition="not signal and is_logged_in" class="container p-4 mt-20 w-2/3 flex justify-center">
+                <p class="text-5xl font-bold text-indigo-50">Esta vez no hubo una señal, intenta otro día.</p>
+            </div>   
+            <div  tal:condition="signal" class="container bg-pink-500 p-4 mt-20 w-2/3">
+                <p class="text-4xl font-semibold text-indigo-50">
+                    ${signal.get("title")}
+                </p>
+                <p class="text-3xl font-normal text-indigo-50">
+                    ${signal.get("message")}
+                </p>
+            </div>   
+
+        </div>
+
+    </div>
+</div>

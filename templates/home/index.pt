@@ -2,8 +2,16 @@
     <div metal:fill-slot="content" tal:omit-tag="True">
 
         <div class="content flex justify-center">
-            <div class="container bg-pink-500 p-4 mt-20 w-2/3">
-                <p class="text-4xl font-black text-indigo-50">¿Qué es esto?</p>
+            <div class="container p-4 mt-20 w-2/3 flex justify-center">
+                <form  action="/signal" method="POST">
+                    <label class="text-3xl font-semibold text-indigo-50" for="title">Título</label><br>
+                    <input class="w-max rounded-lg mb-4" type="text" id="title" name="title"><br>
+                    <label class="text-3xl font-semibold text-indigo-50" for="message">Mensaje</label><br>
+                    <textarea name="message" id="message" cols="50" rows="10" class="w-max rounded-lg mb-4"></textarea><br>
+                    <input class="bg-pink-800 hover:bg-pink-900 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit" value="Enviar Señal">
+                </form> 
+
+                <!-- <p class="text-4xl font-black text-indigo-50">¿Qué es esto?</p>
                 <p class="text-3xl font-normal text-indigo-50 my-4">
                     Señales es un lugar donde puedes mandar un mensaje al universo.
                     <br></br>
@@ -11,7 +19,7 @@
                     Si creas una cuenta podrás ver tus señales.
                     <br></br>
                     Envía tu señal, quizá sea lo que alguien necesite en este momento.
-                </p>
+                </p> -->
             </div>   
 
         </div>
