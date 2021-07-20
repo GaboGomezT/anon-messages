@@ -1,5 +1,5 @@
 from data.signal import look_for_signal, send_signal
-from data.user import login_user, register_user
+from data.user import delete_user, login_user, register_user
 import fastapi
 from fastapi_chameleon import template
 from infrastructure import cookie_auth
@@ -132,4 +132,25 @@ async def signal(request: Request):
     return {
         "is_logged_in": email,
         "signal": signal,
+    }
+
+
+@router.post('/account')
+@template()
+async def account(request: Request):
+    email = cookie_auth.get_email_via_auth_cookie(request)
+
+    delete_user(email)
+
+    response = fastapi.responses.RedirectResponse(url='/', status_code=status.HTTP_302_FOUND)
+    cookie_auth.logout(response)
+    return response
+
+
+@router.get('/account')
+@template()
+async def account(request: Request):
+    email = cookie_auth.get_email_via_auth_cookie(request)
+    return {
+        "is_logged_in": email,
     }

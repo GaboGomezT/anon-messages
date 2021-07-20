@@ -31,3 +31,5 @@ def login_user(email:str, password: str):
     return None
 
 
+def delete_user(email: str):
+    db.users.delete_one({"email": email})

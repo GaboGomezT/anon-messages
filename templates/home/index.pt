@@ -2,8 +2,18 @@
     <div metal:fill-slot="content" tal:omit-tag="True">
 
         <div class="content flex justify-center">
-            <div class="container p-4 mt-20 w-2/3 flex justify-center">
-                <form  action="/signal" method="POST">
+            <div tal:condition="not is_logged_in" class="container p-4 mt-20 w-2/3">
+                <p tal:condition="not is_logged_in" class="text-4xl font-black text-indigo-50">¿Qué es esto?</p>
+                <p tal:condition="not is_logged_in" class="text-3xl font-normal text-indigo-50 my-4">
+                    Señales es un lugar donde puedes mandar un mensaje al universo.
+                    <br></br>
+                    ¡Al mandar un mensaje podrás recibir uno de vuelta!
+                    <br></br>
+                    Envía tu señal, quizá sea lo que alguien necesite en este momento.
+                </p>
+            </div>
+            <div tal:condition="is_logged_in" class="container p-4 mt-20 w-2/3 flex justify-center">
+                <form action="/signal" method="POST">
                     <label class="text-3xl font-semibold text-indigo-50" for="title">Título</label><br>
                     <input class="w-max rounded-lg mb-4" type="text" id="title" name="title"><br>
                     <label class="text-3xl font-semibold text-indigo-50" for="message">Mensaje</label><br>
@@ -11,15 +21,6 @@
                     <input class="bg-pink-800 hover:bg-pink-900 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit" value="Enviar Señal">
                 </form> 
 
-                <!-- <p class="text-4xl font-black text-indigo-50">¿Qué es esto?</p>
-                <p class="text-3xl font-normal text-indigo-50 my-4">
-                    Señales es un lugar donde puedes mandar un mensaje al universo.
-                    <br></br>
-                    ¡Al mandar un mensaje podrás recibir uno de vuelta!
-                    Si creas una cuenta podrás ver tus señales.
-                    <br></br>
-                    Envía tu señal, quizá sea lo que alguien necesite en este momento.
-                </p> -->
             </div>   
 
         </div>
