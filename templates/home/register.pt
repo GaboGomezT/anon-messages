@@ -5,11 +5,11 @@
             <div class="container bg-pink-500 p-10 mt-20 w-min flex justify-center rounded-lg">
                 <form  action="/register" method="POST">
                     <label class="text-3xl font-semibold text-indigo-50" for="name">Nombre</label><br>
-                    <input class="w-max rounded-lg" type="text" id="name" name="name"><br>
+                    <input class="w-max rounded-lg px-6 py-4" type="text" id="name" name="name"><br>
                     <label class="text-3xl font-semibold text-indigo-50" for="email">Correo:</label><br>
-                    <input class="w-max rounded-lg" type="email" id="email" name="email"><br>
+                    <input class="w-max rounded-lg px-6 py-4" type="email" id="email" name="email"><br>
                     <label class="text-3xl font-semibold text-indigo-50" for="password">Contraseña:</label><br>
-                    <input class="w-max rounded-lg" type="password" id="password" name="password"><br><br>
+                    <input class="w-max rounded-lg px-6 py-4" type="password" id="password" name="password"><br><br>
                     <input class="bg-pink-800 hover:bg-pink-900 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit" value="Crear Cuenta">
                 </form> 
             </div>   
