@@ -3,7 +3,7 @@ from passlib.handlers.sha2_crypt import sha512_crypt as crypto
 
 def register_user(name: str, email:str, password: str):
     # first check if the user already exists
-    existing_user = db.users.find({"email": email}).count()
+    existing_user = db.users.count_documents({"email": email})
     if existing_user != 0:
         print("ya existe esta correo")
         return "Este correo ya existe"
